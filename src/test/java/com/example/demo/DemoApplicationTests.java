@@ -18,12 +18,12 @@ class DemoApplicationTests {
 	@Test
 	void whenThenThrowTest() throws InterruptedException, ExecutionException {
 		when(demoService.someAsyncTask()).thenThrow(RuntimeException.class);
-		Assertions.assertThrows(RuntimeException.class, () -> demoService.someAsyncTask().get());
+		Assertions.assertThrows(RuntimeException.class, () -> demoService.someAsyncTask());
 	}
 
 	@Test
 	void doThrowWhenTest() throws InterruptedException, ExecutionException {
 		Mockito.doThrow(RuntimeException.class).when(demoService).someAsyncTask();
-		Assertions.assertThrows(RuntimeException.class, () -> demoService.someAsyncTask().get());
+		Assertions.assertThrows(RuntimeException.class, () -> demoService.someAsyncTask());
 	}
 }
